@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Resume Analysis Result</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+
+            font-family: Arial, sans-serif;
+
+            background: #f4f7fb;
+
+            color: #1f2937;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 7%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .logo {
+
+            font-size: 22px;
+
+            font-weight: bold;
+        }
+
+
+        .nav-links a {
+
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 15px;
+        }
+
+
+        .nav-links a:hover {
+
+            color: #60a5fa;
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+
+            width: 90%;
+
+            max-width: 1050px;
+
+            margin: 45px auto;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .heading {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+
+        .heading h1 {
+
+            font-size: 38px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .heading p {
+
+            color: #6b7280;
+        }
+
+
+        /* =========================
+           CARD
+        ========================= */
+
+        .card {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.07);
+        }
+
+
+        .section-title {
+
+            border-bottom: 2px solid #eee;
+
+            padding-bottom: 12px;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           FIELD
+        ========================= */
+
+        .field {
+
+            display: inline-block;
+
+            background: #ede9fe;
+
+            color: #6d28d9;
+
+            padding: 8px 14px;
+
+            border-radius: 20px;
+
+            font-size: 14px;
+
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+           SCORE
+        ========================= */
+
+        .score-container {
+
+            text-align: center;
+
+            padding: 10px;
+        }
+
+
+        .score {
+
+            font-size: 70px;
+
+            font-weight: bold;
+
+            color: #2563eb;
+        }
+
+
+        .score-label {
+
+            color: #6b7280;
+
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+
+        .skill {
+
+            background: #dbeafe;
+
+            color: #1e40af;
+
+            padding: 9px 15px;
+
+            border-radius: 20px;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        .section-list {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+        }
+
+
+        .section-item {
+
+            padding: 13px;
+
+            background: #f8fafc;
+
+            border-radius: 10px;
+
+            border-left: 4px solid #2563eb;
+        }
+
+
+        /* =========================
+           SUGGESTIONS
+        ========================= */
+
+        .suggestion {
+
+            padding: 15px;
+
+            background: #fff7ed;
+
+            border-radius: 10px;
+
+            margin-bottom: 12px;
+
+            border-left: 4px solid #f59e0b;
+        }
+
+
+        /* =========================
+           JOB MATCH
+        ========================= */
+
+        .match-score {
+
+            text-align: center;
+
+            font-size: 55px;
+
+            font-weight: bold;
+
+            color: #16a34a;
+
+            margin-bottom: 20px;
+        }
+
+
+        .match-box {
+
+            background: #f0fdf4;
+
+            padding: 20px;
+
+            border-radius: 12px;
+
+            margin-top: 15px;
+        }
+
+
+        .missing-box {
+
+            background: #fff7ed;
+
+            padding: 20px;
+
+            border-radius: 12px;
+
+            margin-top: 15px;
+        }
+
+
+        .sub-title {
+
+            font-size: 17px;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .buttons {
+
+            text-align: center;
+
+            margin-top: 30px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .button {
+
+            display: inline-block;
+
+            padding: 14px 24px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            margin: 5px;
+        }
+
+
+        .primary {
+
+            background: #2563eb;
+
+            color: white;
+        }
+
+
+        .primary:hover {
+
+            background: #1d4ed8;
+        }
+
+
+        .secondary {
+
+            background: #111827;
+
+            color: white;
+        }
+
+
+        .secondary:hover {
+
+            background: #030712;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 650px) {
+
+            .section-list {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .navbar {
+
+                padding: 18px 5%;
+            }
+
+
+            .nav-links a {
+
+                margin-left: 10px;
+            }
+
+
+            .score {
+
+                font-size: 55px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <div class="navbar">
+
+        <div class="logo">
+
+            📄 Resume Analyzer
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="/">
+
+                Analyzer
+
+            </a>
+
+
+            <a href="/history/">
+
+                History
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================= -->
+
+    <div class="container">
+
+
+        <div class="heading">
+
+            <h1>
+
+                📊 Resume Analysis
+
+            </h1>
+
+
+            <p>
+
+                Here is the detailed analysis of your resume.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             RESUME INFORMATION
+        ========================= -->
+
+        <div class="card">
+
+            <h2 class="section-title">
+
+                📄 Resume Information
+
+            </h2>
+
+
+            <p>
+
+                <strong>Resume:</strong>
+
+                {{ analysis.resume_name }}
+
+            </p>
+
+
+            <p>
+
+                <strong>Field:</strong>
+
+            </p>
+
+
+            <span class="field">
+
+                🎓 {{ field }}
+
+            </span>
+
+        </div>
+
+
+
+        <!-- =========================
+             SCORE
+        ========================= -->
+
+        <div class="card">
+
+            <h2 class="section-title">
+
+                📊 Resume Score
+
+            </h2>
+
+
+            <div class="score-container">
+
+                <div class="score">
+
+                    {{ score }}/100
+
+                </div>
+
+
+                <div class="score-label">
+
+                    Overall Resume Quality Score
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             DETECTED SKILLS
+        ========================= -->
+
+        <div class="card">
+
+            <h2 class="section-title">
+
+                🛠 Detected Skills
+
+            </h2>
+
+
+            {% if skills %}
+
+                <div class="skills">
+
+                    {% for skill in skills %}
+
+                        <span class="skill">
+
+                            ✓ {{ skill }}
+
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                <p>
+
+                    No relevant skills were detected
+                    for the selected field.
+
+                </p>
+
+            {% endif %}
+
+        </div>
+
+
+
+        <!-- =========================
+             RESUME SECTIONS
+        ========================= -->
+
+        <div class="card">
+
+            <h2 class="section-title">
+
+                📑 Resume Sections
+
+            </h2>
+
+
+            {% if sections %}
+
+                <div class="section-list">
+
+                    {% for section in sections %}
+
+                        <div class="section-item">
+
+                            ✓ {{ section }}
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                <p>
+
+                    No common resume sections detected.
+
+                </p>
+
+            {% endif %}
+
+        </div>
+
+
+
+        <!-- =========================
+             SUGGESTIONS
+        ========================= -->
+
+        <div class="card">
+
+            <h2 class="section-title">
+
+                💡 Suggestions for Improvement
+
+            </h2>
+
+
+            {% for suggestion in suggestions %}
+
+                <div class="suggestion">
+
+                    ⚠️ {{ suggestion }}
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+
+
+        <!-- =========================
+             JOB MATCH
+        ========================= -->
+
+        {% if match_score != None %}
+
+            <div class="card">
+
+                <h2 class="section-title">
+
+                    🎯 Job Description Match
+
+                </h2>
+
+
+                <div class="match-score">
+
+                    {{ match_score }}%
+
+                </div>
+
+
+                {% if matched_skills %}
+
+                    <div class="match-box">
+
+                        <div class="sub-title">
+
+                            ✅ Matching Skills
+
+                        </div>
+
+
+                        <div class="skills">
+
+                            {% for skill in matched_skills %}
+
+                                <span class="skill">
+
+                                    ✓ {{ skill }}
+
+                                </span>
+
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+                {% endif %}
+
+
+
+                {% if missing_skills %}
+
+                    <div class="missing-box">
+
+                        <div class="sub-title">
+
+                            ⚠️ Skills Missing From Resume
+
+                        </div>
+
+
+                        <div class="skills">
+
+                            {% for skill in missing_skills %}
+
+                                <span class="skill">
+
+                                    {{ skill }}
+
+                                </span>
+
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+        {% endif %}
+
+
+
+        <!-- =========================
+             BUTTONS
+        ========================= -->
+
+        <div class="buttons">
+
+            <a
+                href="/"
+                class="button primary"
+            >
+
+                🔄 Analyze Another Resume
+
+            </a>
+
+
+            <a
+                href="/history/"
+                class="button secondary"
+            >
+
+                📊 View History
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

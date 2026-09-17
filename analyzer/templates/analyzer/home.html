@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Resume Analyzer</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    #172554 0%,
+                    #0b1120 38%,
+                    #060b16 100%
+                );
+
+            color: #f8fafc;
+            min-height: 100vh;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            padding: 20px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(15, 23, 42, 0.75);
+
+            border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+
+            text-decoration: none;
+
+            margin-left: 28px;
+
+            font-size: 14px;
+
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #67e8f9;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            text-align: center;
+
+            padding: 75px 20px 45px;
+
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+        .badge {
+            display: inline-block;
+
+            padding: 7px 14px;
+
+            border-radius: 30px;
+
+            background: rgba(59, 130, 246, 0.12);
+
+            border: 1px solid rgba(96, 165, 250, 0.25);
+
+            color: #93c5fd;
+
+            font-size: 12px;
+
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: 54px;
+
+            margin: 0;
+
+            line-height: 1.1;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #f8fafc,
+                    #67e8f9,
+                    #a78bfa
+                );
+
+            background-clip: text;
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: #94a3b8;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            margin: 20px auto 0;
+
+            max-width: 680px;
+        }
+
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
+
+        .container {
+            width: 90%;
+
+            max-width: 900px;
+
+            margin: auto;
+
+            padding-bottom: 60px;
+        }
+
+
+        /* =========================
+           MAIN CARD
+        ========================= */
+
+        .card {
+            background:
+                rgba(15, 23, 42, 0.82);
+
+            border: 1px solid rgba(148, 163, 184, 0.14);
+
+            padding: 34px;
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.35);
+
+            backdrop-filter: blur(14px);
+        }
+
+
+        /* =========================
+           FORM LABEL
+        ========================= */
+
+        label {
+            display: block;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            color: #e2e8f0;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================
+           FILE
+        ========================= */
+
+        input[type="file"] {
+
+            width: 100%;
+
+            padding: 16px;
+
+            border: 2px dashed #334155;
+
+            border-radius: 13px;
+
+            background: #0f172a;
+
+            color: #cbd5e1;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        input[type="file"]:hover {
+            border-color: #38bdf8;
+        }
+
+
+        /* =========================
+           SELECT
+        ========================= */
+
+        select {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border-radius: 12px;
+
+            border: 1px solid #334155;
+
+            background: #0f172a;
+
+            color: #e2e8f0;
+
+            font-size: 15px;
+
+            cursor: pointer;
+        }
+
+        select:focus {
+            outline: none;
+
+            border-color: #38bdf8;
+        }
+
+
+        /* =========================
+           TEXTAREA
+        ========================= */
+
+        textarea {
+
+            width: 100%;
+
+            min-height: 180px;
+
+            padding: 16px;
+
+            border-radius: 12px;
+
+            border: 1px solid #334155;
+
+            background: #0f172a;
+
+            color: #e2e8f0;
+
+            font-family: inherit;
+
+            font-size: 15px;
+
+            line-height: 1.6;
+
+            resize: vertical;
+        }
+
+        textarea::placeholder {
+            color: #64748b;
+        }
+
+        textarea:focus {
+            outline: none;
+
+            border-color: #38bdf8;
+
+            box-shadow:
+                0 0 0 3px rgba(56, 189, 248, 0.08);
+        }
+
+
+        /* =========================
+           INFO
+        ========================= */
+
+        .info {
+            color: #64748b;
+
+            font-size: 13px;
+
+            margin: -3px 0 12px;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        button {
+
+            width: 100%;
+
+            padding: 16px;
+
+            margin-top: 22px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #06b6d4
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+            box-shadow:
+                0 10px 30px rgba(37, 99, 235, 0.22);
+        }
+
+        button:hover {
+
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 14px 35px rgba(37, 99, 235, 0.32);
+        }
+
+
+        /* =========================
+           ERROR
+        ========================= */
+
+        .error {
+
+            margin-top: 18px;
+
+            padding: 14px;
+
+            border-radius: 10px;
+
+            background: rgba(127, 29, 29, 0.2);
+
+            border: 1px solid rgba(248, 113, 113, 0.25);
+
+            color: #fca5a5;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           SUPPORTED
+        ========================= */
+
+        .supported {
+
+            margin-top: 10px;
+
+            text-align: center;
+
+            color: #64748b;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .features {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-top: 22px;
+        }
+
+        .feature {
+
+            padding: 24px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(15, 23, 42, 0.65);
+
+            border: 1px solid rgba(148, 163, 184, 0.12);
+
+            text-align: center;
+
+            transition: 0.2s;
+        }
+
+        .feature:hover {
+
+            transform: translateY(-3px);
+
+            border-color: rgba(56, 189, 248, 0.25);
+        }
+
+        .feature-icon {
+            font-size: 30px;
+
+            margin-bottom: 10px;
+        }
+
+        .feature h3 {
+
+            margin: 8px 0;
+
+            font-size: 16px;
+        }
+
+        .feature p {
+
+            margin: 0;
+
+            color: #94a3b8;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer {
+
+            text-align: center;
+
+            padding: 25px;
+
+            color: #475569;
+
+            font-size: 12px;
+
+            border-top:
+                1px solid rgba(148, 163, 184, 0.08);
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .hero {
+                padding-top: 50px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
+            .nav-links a {
+                margin-left: 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+
+        <div class="logo">
+            📄 Resume Analyzer
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Analyzer
+            </a>
+
+            <a href="/history/">
+                History
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- HERO -->
+
+    <div class="hero">
+
+        <div class="badge">
+            SMART RESUME ANALYSIS
+        </div>
+
+        <h1>
+            Analyze. Improve. Grow.
+        </h1>
+
+        <p>
+            Get a detailed analysis of your resume,
+            discover relevant skills, identify areas
+            for improvement and compare your resume
+            with job opportunities.
+        </p>
+
+    </div>
+
+
+
+    <!-- MAIN -->
+
+    <div class="container">
+
+
+        <!-- FORM CARD -->
+
+        <div class="card">
+
+            <form
+                method="POST"
+                enctype="multipart/form-data"
+            >
+
+                {% csrf_token %}
+
+
+                <!-- Resume -->
+
+                <label>
+                    📄 Upload Your Resume
+                </label>
+
+                <input
+                    type="file"
+                    name="resume"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    required
+                >
+
+                <div class="supported">
+                    Supported formats:
+                    PDF, JPG, JPEG, PNG
+                </div>
+
+
+                <br>
+
+
+                <!-- Field -->
+
+                <label>
+                    🎓 Select Your Field
+                </label>
+
+                <select
+                    name="field"
+                    required
+                >
+
+                    <option value="">
+                        -- Select Your Field --
+                    </option>
+
+                    <option value="BCA / Computer Science">
+                        BCA / Computer Science
+                    </option>
+
+                    <option value="BBA / Business Administration">
+                        BBA / Business Administration
+                    </option>
+
+                    <option value="B.Com / Commerce">
+                        B.Com / Commerce
+                    </option>
+
+                    <option value="B.Tech / Engineering">
+                        B.Tech / Engineering
+                    </option>
+
+                    <option value="MBA / Management">
+                        MBA / Management
+                    </option>
+
+                    <option value="Finance & Accounting">
+                        Finance & Accounting
+                    </option>
+
+                    <option value="Marketing">
+                        Marketing
+                    </option>
+
+                    <option value="Human Resources">
+                        Human Resources
+                    </option>
+
+                    <option value="Design">
+                        Design
+                    </option>
+
+                    <option value="Arts & Humanities">
+                        Arts & Humanities
+                    </option>
+
+                    <option value="Science">
+                        Science
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <br><br>
+
+
+                <!-- Job Description -->
+
+                <label>
+                    🎯 Job Description
+                </label>
+
+                <p class="info">
+                    Optional — paste a job description
+                    to calculate your job match.
+                </p>
+
+                <textarea
+                    name="job_description"
+                    placeholder="Paste the job description here..."
+                ></textarea>
+
+
+                <!-- Button -->
+
+                <button type="submit">
+
+                    ✨ Analyze My Resume
+
+                </button>
+
+
+            </form>
+
+
+            {% if error %}
+
+                <div class="error">
+
+                    {{ error }}
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+
+
+        <!-- FEATURES -->
+
+        <div class="features">
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    📊
+                </div>
+
+                <h3>
+                    Resume Score
+                </h3>
+
+                <p>
+                    Get a structured score based
+                    on your resume content.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🧠
+                </div>
+
+                <h3>
+                    Smart Suggestions
+                </h3>
+
+                <p>
+                    Find missing sections and
+                    areas you can improve.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🎯
+                </div>
+
+                <h3>
+                    Job Matching
+                </h3>
+
+                <p>
+                    Compare your skills with
+                    a specific job description.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        Resume Analyzer • Built with Django
+
+    </div>
+
+
+</body>
+
+</html>

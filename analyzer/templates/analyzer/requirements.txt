@@ -1,0 +1,6 @@
+Django
+PyPDF2
+Pillow
+pytesseract
+gunicorn
+whitenoise
