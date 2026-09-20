@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Register - Resume Analyzer</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+
+            margin: 0;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    #172554 0%,
+                    #0b1120 40%,
+                    #060b16 100%
+                );
+
+            color: #f8fafc;
+        }
+
+        .card {
+
+            width: 90%;
+
+            max-width: 470px;
+
+            background:
+                rgba(15, 23, 42, 0.9);
+
+            border: 1px solid rgba(
+                148, 163, 184, 0.15
+            );
+
+            border-radius: 22px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 25px 70px rgba(
+                    0, 0, 0, 0.4
+                );
+        }
+
+        .logo {
+
+            text-align: center;
+
+            font-size: 25px;
+
+            font-weight: bold;
+
+            margin-bottom: 25px;
+        }
+
+        h1 {
+
+            text-align: center;
+
+            font-size: 30px;
+
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+
+            text-align: center;
+
+            color: #94a3b8;
+
+            margin-bottom: 28px;
+        }
+
+        label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #cbd5e1;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+        input {
+
+            width: 100%;
+
+            padding: 14px;
+
+            margin-bottom: 10px;
+
+            background: #0f172a;
+
+            border: 1px solid #334155;
+
+            border-radius: 10px;
+
+            color: #f8fafc;
+
+            font-size: 15px;
+        }
+
+        input:focus {
+
+            outline: none;
+
+            border-color: #38bdf8;
+        }
+
+        .helptext {
+
+            display: block;
+
+            color: #64748b;
+
+            font-size: 12px;
+
+            margin-bottom: 15px;
+
+            line-height: 1.5;
+        }
+
+        .errorlist {
+
+            color: #fca5a5;
+
+            padding-left: 18px;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+        button {
+
+            width: 100%;
+
+            padding: 15px;
+
+            margin-top: 10px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #06b6d4
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .bottom {
+
+            text-align: center;
+
+            margin-top: 22px;
+
+            color: #94a3b8;
+
+            font-size: 14px;
+        }
+
+        .bottom a {
+
+            color: #67e8f9;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="card">
+
+    <div class="logo">
+        📄 Resume Analyzer
+    </div>
+
+    <h1>
+        Create Account
+    </h1>
+
+    <div class="subtitle">
+        Create your account to analyze resumes
+    </div>
+
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+
+        {{ form.as_p }}
+
+
+        <button type="submit">
+
+            ✨ Create Account
+
+        </button>
+
+    </form>
+
+
+    <div class="bottom">
+
+        Already have an account?
+
+        <a href="{% url 'login' %}">
+            Login
+        </a>
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

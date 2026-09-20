@@ -15,17 +15,19 @@
 
         body {
             margin: 0;
+
             font-family: "Segoe UI", Arial, sans-serif;
 
             background:
                 radial-gradient(
                     circle at top left,
                     #172554 0%,
-                    #0b1120 38%,
+                    #0b1120 40%,
                     #060b16 100%
                 );
 
             color: #f8fafc;
+
             min-height: 100vh;
         }
 
@@ -35,39 +37,135 @@
         ========================= */
 
         .navbar {
-            padding: 20px 7%;
+
+            padding: 18px 7%;
 
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
 
-            background: rgba(15, 23, 42, 0.75);
+            background:
+                rgba(15, 23, 42, 0.80);
 
-            border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+            border-bottom:
+                1px solid
+                rgba(148, 163, 184, 0.15);
 
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(14px);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
         }
+
 
         .logo {
+
             font-size: 21px;
+
             font-weight: 700;
+
             letter-spacing: 0.3px;
+
+            white-space: nowrap;
         }
 
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+        }
+
+
         .nav-links a {
+
             color: #cbd5e1;
 
             text-decoration: none;
-
-            margin-left: 28px;
 
             font-size: 14px;
 
             transition: 0.2s;
         }
 
+
         .nav-links a:hover {
+
             color: #67e8f9;
+        }
+
+
+        .username {
+
+            color: #94a3b8;
+
+            font-size: 14px;
+
+            padding-left: 5px;
+        }
+
+
+        /* =========================
+           LOGOUT BUTTON
+        ========================= */
+
+        .logout-form {
+
+            margin: 0;
+
+            padding: 0;
+
+            display: inline;
+        }
+
+
+        .logout-button {
+
+            width: auto;
+
+            padding: 8px 15px;
+
+            margin: 0;
+
+            background:
+                rgba(239, 68, 68, 0.10);
+
+            border:
+                1px solid
+                rgba(248, 113, 113, 0.25);
+
+            color: #fca5a5;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            box-shadow: none;
+
+            transition: 0.2s;
+        }
+
+
+        .logout-button:hover {
+
+            background:
+                rgba(239, 68, 68, 0.18);
+
+            transform: none;
+
+            box-shadow: none;
         }
 
 
@@ -76,6 +174,7 @@
         ========================= */
 
         .hero {
+
             text-align: center;
 
             padding: 75px 20px 45px;
@@ -85,25 +184,34 @@
             margin: auto;
         }
 
+
         .badge {
+
             display: inline-block;
 
             padding: 7px 14px;
 
             border-radius: 30px;
 
-            background: rgba(59, 130, 246, 0.12);
+            background:
+                rgba(59, 130, 246, 0.12);
 
-            border: 1px solid rgba(96, 165, 250, 0.25);
+            border:
+                1px solid
+                rgba(96, 165, 250, 0.25);
 
             color: #93c5fd;
 
             font-size: 12px;
 
             margin-bottom: 18px;
+
+            letter-spacing: 0.5px;
         }
 
+
         .hero h1 {
+
             font-size: 54px;
 
             margin: 0;
@@ -124,7 +232,9 @@
             -webkit-text-fill-color: transparent;
         }
 
+
         .hero p {
+
             color: #94a3b8;
 
             font-size: 18px;
@@ -142,6 +252,7 @@
         ========================= */
 
         .container {
+
             width: 90%;
 
             max-width: 900px;
@@ -157,27 +268,32 @@
         ========================= */
 
         .card {
-            background:
-                rgba(15, 23, 42, 0.82);
 
-            border: 1px solid rgba(148, 163, 184, 0.14);
+            background:
+                rgba(15, 23, 42, 0.84);
+
+            border:
+                1px solid
+                rgba(148, 163, 184, 0.14);
 
             padding: 34px;
 
             border-radius: 22px;
 
             box-shadow:
-                0 25px 70px rgba(0, 0, 0, 0.35);
+                0 25px 70px
+                rgba(0, 0, 0, 0.35);
 
             backdrop-filter: blur(14px);
         }
 
 
         /* =========================
-           FORM LABEL
+           LABEL
         ========================= */
 
         label {
+
             display: block;
 
             font-size: 14px;
@@ -191,7 +307,7 @@
 
 
         /* =========================
-           FILE
+           FILE INPUT
         ========================= */
 
         input[type="file"] {
@@ -200,7 +316,9 @@
 
             padding: 16px;
 
-            border: 2px dashed #334155;
+            border:
+                2px dashed
+                #334155;
 
             border-radius: 13px;
 
@@ -213,7 +331,9 @@
             transition: 0.2s;
         }
 
+
         input[type="file"]:hover {
+
             border-color: #38bdf8;
         }
 
@@ -230,7 +350,9 @@
 
             border-radius: 12px;
 
-            border: 1px solid #334155;
+            border:
+                1px solid
+                #334155;
 
             background: #0f172a;
 
@@ -241,10 +363,16 @@
             cursor: pointer;
         }
 
+
         select:focus {
+
             outline: none;
 
             border-color: #38bdf8;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(56, 189, 248, 0.08);
         }
 
 
@@ -262,7 +390,9 @@
 
             border-radius: 12px;
 
-            border: 1px solid #334155;
+            border:
+                1px solid
+                #334155;
 
             background: #0f172a;
 
@@ -277,17 +407,22 @@
             resize: vertical;
         }
 
+
         textarea::placeholder {
+
             color: #64748b;
         }
 
+
         textarea:focus {
+
             outline: none;
 
             border-color: #38bdf8;
 
             box-shadow:
-                0 0 0 3px rgba(56, 189, 248, 0.08);
+                0 0 0 3px
+                rgba(56, 189, 248, 0.08);
         }
 
 
@@ -296,6 +431,7 @@
         ========================= */
 
         .info {
+
             color: #64748b;
 
             font-size: 13px;
@@ -305,10 +441,26 @@
 
 
         /* =========================
-           BUTTON
+           SUPPORTED FILES
         ========================= */
 
-        button {
+        .supported {
+
+            margin-top: 10px;
+
+            text-align: center;
+
+            color: #64748b;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           ANALYZE BUTTON
+        ========================= */
+
+        .analyze-button {
 
             width: 100%;
 
@@ -333,20 +485,25 @@
 
             font-weight: 700;
 
+            font-family: inherit;
+
             cursor: pointer;
 
             transition: 0.2s;
 
             box-shadow:
-                0 10px 30px rgba(37, 99, 235, 0.22);
+                0 10px 30px
+                rgba(37, 99, 235, 0.22);
         }
 
-        button:hover {
+
+        .analyze-button:hover {
 
             transform: translateY(-1px);
 
             box-shadow:
-                0 14px 35px rgba(37, 99, 235, 0.32);
+                0 14px 35px
+                rgba(37, 99, 235, 0.32);
         }
 
 
@@ -362,29 +519,16 @@
 
             border-radius: 10px;
 
-            background: rgba(127, 29, 29, 0.2);
+            background:
+                rgba(127, 29, 29, 0.20);
 
-            border: 1px solid rgba(248, 113, 113, 0.25);
+            border:
+                1px solid
+                rgba(248, 113, 113, 0.25);
 
             color: #fca5a5;
 
             text-align: center;
-        }
-
-
-        /* =========================
-           SUPPORTED
-        ========================= */
-
-        .supported {
-
-            margin-top: 10px;
-
-            text-align: center;
-
-            color: #64748b;
-
-            font-size: 12px;
         }
 
 
@@ -404,6 +548,7 @@
             margin-top: 22px;
         }
 
+
         .feature {
 
             padding: 24px;
@@ -413,25 +558,32 @@
             background:
                 rgba(15, 23, 42, 0.65);
 
-            border: 1px solid rgba(148, 163, 184, 0.12);
+            border:
+                1px solid
+                rgba(148, 163, 184, 0.12);
 
             text-align: center;
 
             transition: 0.2s;
         }
 
+
         .feature:hover {
 
             transform: translateY(-3px);
 
-            border-color: rgba(56, 189, 248, 0.25);
+            border-color:
+                rgba(56, 189, 248, 0.25);
         }
 
+
         .feature-icon {
+
             font-size: 30px;
 
             margin-bottom: 10px;
         }
+
 
         .feature h3 {
 
@@ -439,6 +591,7 @@
 
             font-size: 16px;
         }
+
 
         .feature p {
 
@@ -467,7 +620,8 @@
             font-size: 12px;
 
             border-top:
-                1px solid rgba(148, 163, 184, 0.08);
+                1px solid
+                rgba(148, 163, 184, 0.08);
         }
 
 
@@ -477,28 +631,72 @@
 
         @media (max-width: 700px) {
 
+            .navbar {
+
+                padding: 16px 5%;
+
+                align-items: flex-start;
+            }
+
+
+            .logo {
+
+                font-size: 18px;
+            }
+
+
+            .nav-links {
+
+                gap: 10px;
+
+                flex-wrap: wrap;
+
+                justify-content: flex-end;
+            }
+
+
+            .nav-links a,
+            .username {
+
+                font-size: 12px;
+            }
+
+
+            .logout-button {
+
+                padding: 7px 11px;
+
+                font-size: 12px;
+            }
+
+
             .hero {
+
                 padding-top: 50px;
             }
 
+
             .hero h1 {
+
                 font-size: 38px;
             }
 
+
             .hero p {
+
                 font-size: 16px;
             }
 
+
             .features {
+
                 grid-template-columns: 1fr;
             }
 
-            .card {
-                padding: 22px;
-            }
 
-            .nav-links a {
-                margin-left: 12px;
+            .card {
+
+                padding: 22px;
             }
 
         }
@@ -511,23 +709,68 @@
 <body>
 
 
-    <!-- NAVBAR -->
+    <!-- =========================
+         NAVBAR
+    ========================= -->
 
     <div class="navbar">
 
+
         <div class="logo">
+
             📄 Resume Analyzer
+
         </div>
+
 
         <div class="nav-links">
 
-            <a href="/">
-                Analyzer
-            </a>
 
-            <a href="/history/">
-                History
-            </a>
+            {% if user.is_authenticated %}
+
+                <span class="username">
+
+                    👤 {{ user.username }}
+
+                </span>
+
+
+                <a href="{% url 'home' %}">
+
+                    Analyze
+
+                </a>
+
+
+                <a href="{% url 'history' %}">
+
+                    History
+
+                </a>
+
+
+                <form
+                    method="POST"
+                    action="{% url 'logout' %}"
+                    class="logout-form"
+                >
+
+                    {% csrf_token %}
+
+                    <button
+                        type="submit"
+                        class="logout-button"
+                    >
+
+                        Logout
+
+                    </button>
+
+                </form>
+
+
+            {% endif %}
+
 
         </div>
 
@@ -535,37 +778,54 @@
 
 
 
-    <!-- HERO -->
+    <!-- =========================
+         HERO
+    ========================= -->
 
     <div class="hero">
 
+
         <div class="badge">
+
             SMART RESUME ANALYSIS
+
         </div>
 
+
         <h1>
+
             Analyze. Improve. Grow.
+
         </h1>
 
+
         <p>
+
             Get a detailed analysis of your resume,
             discover relevant skills, identify areas
             for improvement and compare your resume
             with job opportunities.
+
         </p>
+
 
     </div>
 
 
 
-    <!-- MAIN -->
+    <!-- =========================
+         MAIN CONTAINER
+    ========================= -->
 
     <div class="container">
 
 
-        <!-- FORM CARD -->
+        <!-- =========================
+             ANALYZER CARD
+        ========================= -->
 
         <div class="card">
+
 
             <form
                 method="POST"
@@ -575,11 +835,14 @@
                 {% csrf_token %}
 
 
-                <!-- Resume -->
+                <!-- RESUME -->
 
                 <label>
+
                     📄 Upload Your Resume
+
                 </label>
+
 
                 <input
                     type="file"
@@ -588,20 +851,26 @@
                     required
                 >
 
+
                 <div class="supported">
+
                     Supported formats:
                     PDF, JPG, JPEG, PNG
+
                 </div>
 
 
                 <br>
 
 
-                <!-- Field -->
+                <!-- FIELD -->
 
                 <label>
+
                     🎓 Select Your Field
+
                 </label>
+
 
                 <select
                     name="field"
@@ -609,73 +878,118 @@
                 >
 
                     <option value="">
+
                         -- Select Your Field --
+
                     </option>
+
 
                     <option value="BCA / Computer Science">
+
                         BCA / Computer Science
+
                     </option>
+
 
                     <option value="BBA / Business Administration">
+
                         BBA / Business Administration
+
                     </option>
+
 
                     <option value="B.Com / Commerce">
+
                         B.Com / Commerce
+
                     </option>
+
 
                     <option value="B.Tech / Engineering">
+
                         B.Tech / Engineering
+
                     </option>
+
 
                     <option value="MBA / Management">
+
                         MBA / Management
+
                     </option>
+
 
                     <option value="Finance & Accounting">
+
                         Finance & Accounting
+
                     </option>
+
 
                     <option value="Marketing">
+
                         Marketing
+
                     </option>
+
 
                     <option value="Human Resources">
+
                         Human Resources
+
                     </option>
+
 
                     <option value="Design">
+
                         Design
+
                     </option>
+
 
                     <option value="Arts & Humanities">
+
                         Arts & Humanities
+
                     </option>
+
 
                     <option value="Science">
+
                         Science
+
                     </option>
 
+
                     <option value="Other">
+
                         Other
+
                     </option>
 
                 </select>
 
 
-                <br><br>
+                <br>
+                <br>
 
 
-                <!-- Job Description -->
+                <!-- JOB DESCRIPTION -->
 
                 <label>
+
                     🎯 Job Description
+
                 </label>
 
+
                 <p class="info">
+
                     Optional — paste a job description
                     to calculate your job match.
+
                 </p>
+
 
                 <textarea
                     name="job_description"
@@ -683,9 +997,12 @@
                 ></textarea>
 
 
-                <!-- Button -->
+                <!-- ANALYZE -->
 
-                <button type="submit">
+                <button
+                    type="submit"
+                    class="analyze-button"
+                >
 
                     ✨ Analyze My Resume
 
@@ -705,76 +1022,114 @@
 
             {% endif %}
 
+
         </div>
 
 
 
-        <!-- FEATURES -->
+        <!-- =========================
+             FEATURES
+        ========================= -->
 
         <div class="features">
 
 
             <div class="feature">
 
+
                 <div class="feature-icon">
+
                     📊
+
                 </div>
 
+
                 <h3>
+
                     Resume Score
+
                 </h3>
 
+
                 <p>
+
                     Get a structured score based
                     on your resume content.
+
                 </p>
+
 
             </div>
 
 
+
             <div class="feature">
 
+
                 <div class="feature-icon">
+
                     🧠
+
                 </div>
 
+
                 <h3>
+
                     Smart Suggestions
+
                 </h3>
 
+
                 <p>
+
                     Find missing sections and
                     areas you can improve.
+
                 </p>
+
 
             </div>
 
 
+
             <div class="feature">
 
+
                 <div class="feature-icon">
+
                     🎯
+
                 </div>
 
+
                 <h3>
+
                     Job Matching
+
                 </h3>
 
+
                 <p>
+
                     Compare your skills with
                     a specific job description.
+
                 </p>
+
 
             </div>
 
 
         </div>
 
+
     </div>
 
 
 
-    <!-- FOOTER -->
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
     <div class="footer">
 

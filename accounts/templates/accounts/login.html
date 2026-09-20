@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Login - Resume Analyzer</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    #172554 0%,
+                    #0b1120 40%,
+                    #060b16 100%
+                );
+
+            color: #f8fafc;
+        }
+
+
+        /* =========================
+           LOGIN CARD
+        ========================= */
+
+        .card {
+            width: 90%;
+            max-width: 430px;
+
+            padding: 38px;
+
+            background:
+                rgba(15, 23, 42, 0.92);
+
+            border: 1px solid
+                rgba(148, 163, 184, 0.15);
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 25px 70px
+                rgba(0, 0, 0, 0.45);
+
+            backdrop-filter: blur(14px);
+        }
+
+
+        /* =========================
+           LOGO
+        ========================= */
+
+        .logo {
+            text-align: center;
+
+            font-size: 24px;
+
+            font-weight: 700;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           HEADING
+        ========================= */
+
+        h1 {
+            text-align: center;
+
+            font-size: 30px;
+
+            margin: 0 0 10px;
+        }
+
+
+        .subtitle {
+            text-align: center;
+
+            color: #94a3b8;
+
+            font-size: 14px;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           FORM
+        ========================= */
+
+        form {
+            width: 100%;
+        }
+
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+
+        label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #cbd5e1;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+
+        input[type="text"],
+        input[type="password"] {
+
+            width: 100%;
+
+            padding: 14px 15px;
+
+            border: 1px solid #334155;
+
+            border-radius: 10px;
+
+            background: #0f172a;
+
+            color: #f8fafc;
+
+            font-family: inherit;
+
+            font-size: 15px;
+
+            transition: 0.2s;
+        }
+
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+
+            outline: none;
+
+            border-color: #38bdf8;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(56, 189, 248, 0.10);
+        }
+
+
+        input::placeholder {
+            color: #64748b;
+        }
+
+
+        /* =========================
+           ERRORS
+        ========================= */
+
+        .errorlist {
+
+            margin: 0 0 10px;
+
+            padding: 10px 12px;
+
+            list-style: none;
+
+            border-radius: 8px;
+
+            background:
+                rgba(127, 29, 29, 0.25);
+
+            border:
+                1px solid
+                rgba(248, 113, 113, 0.25);
+
+            color: #fca5a5;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+
+        .non-field-error {
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================
+           LOGIN BUTTON
+        ========================= */
+
+        button {
+
+            width: 100%;
+
+            padding: 15px;
+
+            margin-top: 8px;
+
+            border: none;
+
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #06b6d4
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            font-family: inherit;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+            box-shadow:
+                0 10px 30px
+                rgba(37, 99, 235, 0.25);
+        }
+
+
+        button:hover {
+
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 14px 35px
+                rgba(37, 99, 235, 0.35);
+        }
+
+
+        /* =========================
+           REGISTER LINK
+        ========================= */
+
+        .bottom {
+
+            text-align: center;
+
+            margin-top: 24px;
+
+            color: #94a3b8;
+
+            font-size: 14px;
+        }
+
+
+        .bottom a {
+
+            color: #67e8f9;
+
+            text-decoration: none;
+
+            font-weight: 700;
+        }
+
+
+        .bottom a:hover {
+
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 500px) {
+
+            .card {
+                padding: 28px 22px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="card">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            📄 Resume Analyzer
+
+        </div>
+
+
+        <!-- HEADING -->
+
+        <h1>
+
+            Welcome Back
+
+        </h1>
+
+
+        <div class="subtitle">
+
+            Login to continue to your account
+
+        </div>
+
+
+        <!-- LOGIN FORM -->
+
+        <form
+            method="POST"
+            action="{% url 'login' %}"
+        >
+
+            {% csrf_token %}
+
+
+            <!-- General form errors -->
+
+            {% if form.non_field_errors %}
+
+                <div class="errorlist non-field-error">
+
+                    {{ form.non_field_errors }}
+
+                </div>
+
+            {% endif %}
+
+
+            <!-- USERNAME -->
+
+            <div class="form-group">
+
+                <label for="id_username">
+
+                    Username
+
+                </label>
+
+
+                {% if form.username.errors %}
+
+                    <div class="errorlist">
+
+                        {{ form.username.errors }}
+
+                    </div>
+
+                {% endif %}
+
+
+                <input
+                    type="text"
+                    name="username"
+                    id="id_username"
+                    placeholder="Enter your username"
+                    autocomplete="username"
+                    required
+                >
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="form-group">
+
+                <label for="id_password">
+
+                    Password
+
+                </label>
+
+
+                {% if form.password.errors %}
+
+                    <div class="errorlist">
+
+                        {{ form.password.errors }}
+
+                    </div>
+
+                {% endif %}
+
+
+                <input
+                    type="password"
+                    name="password"
+                    id="id_password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                >
+
+            </div>
+
+
+            <!-- NEXT URL -->
+
+            {% if next %}
+
+                <input
+                    type="hidden"
+                    name="next"
+                    value="{{ next }}"
+                >
+
+            {% endif %}
+
+
+            <!-- LOGIN -->
+
+            <button type="submit">
+
+                🔐 Login
+
+            </button>
+
+
+        </form>
+
+
+        <!-- REGISTER -->
+
+        <div class="bottom">
+
+            Don't have an account?
+
+            <a href="{% url 'register' %}">
+
+                Create one
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

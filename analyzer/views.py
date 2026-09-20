@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from PyPDF2 import PdfReader
 from PIL import Image, ImageOps
 import pytesseract
@@ -606,6 +607,7 @@ def extract_text_from_resume(resume):
 # HOME
 # =========================================================
 
+@login_required
 def home(request):
 
     error = ""
@@ -718,6 +720,8 @@ def home(request):
 
                         analysis = ResumeAnalysis.objects.create(
 
+                            user=request.user,
+
                             resume_name=resume.name,
 
                             field=field,
@@ -728,7 +732,7 @@ def home(request):
 
                             skills=", ".join(skills)
 
-                        )
+)
 
                         # ---------------------------------
                         # SHOW RESULT
@@ -785,11 +789,14 @@ def home(request):
 # HISTORY
 # =========================================================
 
+@login_required
 def history(request):
 
-    analyses = ResumeAnalysis.objects.all().order_by(
+    analyses = ResumeAnalysis.objects.filter(
+        user=request.user
+         ).order_by(
         "-created_at"
-    )
+        )
 
     return render(
 
@@ -815,7 +822,8 @@ def delete_analysis(
 
     analysis = get_object_or_404(
         ResumeAnalysis,
-        id=analysis_id
+        id=analysis_id,
+        user=request.user
     )
 
     if request.method == "POST":
